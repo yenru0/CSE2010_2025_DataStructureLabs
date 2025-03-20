@@ -109,7 +109,7 @@ void PrintList(List list) {
         printf("your list is empty!\n");
     }
     while (tmp != NULL) {
-        printf("key: %d\t", tmp->element);
+        printf("key: %d  ", tmp->element);
         tmp = tmp->next;
     }
     printf("\n");
