@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    Stack *stack = Stack_new(16);
+    Stack *stack = Stack_new(10);
     char c;
     printf("Top numbers: \n");
     while (1) {
