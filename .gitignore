@@ -2,5 +2,5 @@
 .out
 .vscode
 *.out
-in.txt
-out.txt
+*in.txt
+*out.txt
