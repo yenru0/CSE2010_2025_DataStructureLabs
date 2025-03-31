@@ -129,7 +129,7 @@ int main(int argc, char *argv[]) {
 
     Stack *stack = Stack_new(10);
     char c;
-    printf("Top numbers: \n");
+    printf("Top numbers: ");
     while (1) {
         fscanf(fi, "%c", &c);
         if (c == '!') {
