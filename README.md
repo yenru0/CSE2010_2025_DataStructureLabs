@@ -1,4 +1,4 @@
-25 자구론 기록 
+CSE2010 202510HY12745 자료구조론
 ===
 
 ## makefile Compile & Run
