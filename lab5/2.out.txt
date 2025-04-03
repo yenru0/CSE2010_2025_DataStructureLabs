@@ -1,0 +1,13 @@
+Enqueue 1
+Enqueue 3
+Element in the front : 1
+Element in the rear : 3
+Dequeue 1
+Dequeue 3
+Enqueue 2
+Element in the front : 2
+Element in the rear : 2
+Enqueue 6
+Enqueue 8
+Element in the front : 2
+Element in the rear : 8
