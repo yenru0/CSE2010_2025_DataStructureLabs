@@ -20,9 +20,20 @@ run:
 	@if [ "$(labs)" = "" ]; then \
 		echo "Usage: make run labs={lab_number} (proc={problem_number})"; \
 	elif [ "$(proc)" = "" ]; then \
-		$(MAKE) compile labs=$(labs) && \
-		$(BUILD_DIR)/p$(labs).out $(args); \
+		$(MAKE) compile labs=$(labs); \
+		if [ "$(stdin)" = "false" ]; then \
+			$(BUILD_DIR)/p$(labs).out $(args) > $(BUILD_DIR)/out.txt; \
+		else \
+			$(BUILD_DIR)/p$(labs).out $(args); \
+		fi \
 	else \
 		$(MAKE) compile labs=$(labs) proc=$(proc) && \
 		$(BUILD_DIR)/p$(labs)_$(proc).out $(args); \
+	fi
+
+diff:
+	@if [ "$(labs)" = "" ] || [ "$(tc)" = "" ]; then \
+		echo "Usage: make diff labs={lab_number} tc={testcase_number}"; \
+	else \
+		diff -u -s lab$(labs)/${tc}.out.txt $(BUILD_DIR)/out.txt; \
 	fi

@@ -1,6 +1,5 @@
 .in
 .out
 .vscode
-*.out
-*in.txt
-*out.txt
+
+build/*
