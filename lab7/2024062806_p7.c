@@ -182,11 +182,10 @@ TreeNode Tree_find(Tree tree, int value) {
 }
 
 TreeNode Tree_findMin(Tree tree) {
-    TreeNode current = tree;
-    while (current && current->left != NULL) {
-        current = current->left;
+    if (tree->left == NULL) {
+        return tree;
     }
-    return current;
+    return Tree_findMin(tree->left);
 }
 
 TreeNode Tree_findMax(Tree tree) {
