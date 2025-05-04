@@ -1,0 +1,7 @@
+There's node(7) to be balanced! Do SingleRotateWithLeft!
+There's node(7) to be balanced! Do SingleRotateWithRight!
+There's node(23) to be balanced! Do DoubleRotateWithLeft!
+There's node(10) to be balanced! Do SingleRotateWithRight!
+Insertion Error : 23 is already in the tree!
+There's node(5) to be balanced! Do SingleRotateWithRight!
+3(1) 4(0) 5(2) 7(0) 10(1) 20(0) 21(3) 22(0) 23(2) 24(1) 25(0) 
