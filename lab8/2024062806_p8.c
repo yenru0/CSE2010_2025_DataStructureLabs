@@ -40,10 +40,10 @@ AVLNode *avltree_node_create();
 AVLNode *avltree_node_create_with_ptr(void *x);
 int avltree_node_get_height(AVLNode *node);
 
-AVLNode *avltree_single_rotate_with_left(AVLNode *node);
-AVLNode *avltree_single_rotate_with_right(AVLNode *node);// LL
-AVLNode *avltree_double_rotate_with_left(AVLNode *node);
-AVLNode *avltree_double_rotate_with_right(AVLNode *node);
+AVLNode *avltree_single_rotate_left(AVLNode *node);
+AVLNode *avltree_single_rotate_right(AVLNode *node);// LL
+AVLNode *avltree_double_rotate_right_left(AVLNode *node);
+AVLNode *avltree_double_rotate_left_right(AVLNode *node);
 
 AVLInsertionResult avltree_insert(AVLTree tree, void *x, int (*cmp)(const void *, const void *));
 
@@ -124,7 +124,7 @@ int avltree_node_get_height(AVLNode *node) {
     return node->height;
 }
 
-AVLNode *avltree_single_rotate_with_left(AVLNode *node) {
+AVLNode *avltree_single_rotate_left(AVLNode *node) {
     AVLNode *to_be_center = node->right;
     AVLNode *to_be_left_sub2 = to_be_center->left;
 
@@ -141,7 +141,7 @@ AVLNode *avltree_single_rotate_with_left(AVLNode *node) {
     return to_be_center;
 }
 
-AVLNode *avltree_single_rotate_with_right(AVLNode *node) {
+AVLNode *avltree_single_rotate_right(AVLNode *node) {
     // node is to_be_right
     AVLNode *to_be_center = node->left;
     AVLNode *to_be_right_sub1 = to_be_center->right;
@@ -158,16 +158,16 @@ AVLNode *avltree_single_rotate_with_right(AVLNode *node) {
     return to_be_center;
 }
 
-AVLNode *avltree_double_rotate_with_left(AVLNode *node) {
+AVLNode *avltree_double_rotate_right_left(AVLNode *node) {
     // node is to_be_left
-    node->right = avltree_single_rotate_with_right(node->right);
-    return avltree_single_rotate_with_left(node);
+    node->right = avltree_single_rotate_right(node->right);
+    return avltree_single_rotate_left(node);
 }
 
-AVLNode *avltree_double_rotate_with_right(AVLNode *node) {
+AVLNode *avltree_double_rotate_left_right(AVLNode *node) {
     // node is to_be_right
-    node->left = avltree_single_rotate_with_left(node->left);
-    return avltree_single_rotate_with_right(node);
+    node->left = avltree_single_rotate_left(node->left);
+    return avltree_single_rotate_right(node);
 }
 
 AVLInsertionResult avltree_insert(AVLTree tree, void *x, int (*cmp)(const void *, const void *)) {
@@ -187,10 +187,10 @@ AVLInsertionResult avltree_insert(AVLTree tree, void *x, int (*cmp)(const void *
         if (avltree_node_get_height(tree->left) - avltree_node_get_height(tree->right) == 2) {
             if (cmp(tree->left->data, x) > 0) {
                 printf("There's node(%d) to be balanced! Do SingleRotateWithLeft!\n", *(int *) tree->data);
-                tree = avltree_single_rotate_with_right(tree);
+                tree = avltree_single_rotate_right(tree);
             } else {
                 printf("There's node(%d) to be balanced! Do DoubleRotateWithLeft!\n", *(int *) tree->data);
-                tree = avltree_double_rotate_with_right(tree);
+                tree = avltree_double_rotate_left_right(tree);
             }
         }
     } else if (cmp(tree->data, x) < 0) {
@@ -202,10 +202,10 @@ AVLInsertionResult avltree_insert(AVLTree tree, void *x, int (*cmp)(const void *
         if (avltree_node_get_height(tree->right) - avltree_node_get_height(tree->left) == 2) {
             if (cmp(tree->right->data, x) < 0) {
                 printf("There's node(%d) to be balanced! Do SingleRotateWithRight!\n", *(int *) tree->data);
-                tree = avltree_single_rotate_with_left(tree);
+                tree = avltree_single_rotate_left(tree);
             } else {
                 printf("There's node(%d) to be balanced! Do DoubleRotateWithRight!\n", *(int *) tree->data);
-                tree = avltree_double_rotate_with_left(tree);
+                tree = avltree_double_rotate_right_left(tree);
             }
         }
     } else {
