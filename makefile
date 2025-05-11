@@ -4,8 +4,12 @@ BUILD_DIR := build
 CC := gcc
 CFLAGS := -Wall -Wextra -Wpedantic -fsanitize=address -g
 
-all:
-	echo "Hello, World!"
+init:
+	echo "Initialization of build"
+	if [ ! -d "$(BUILD_DIR)" ]; then
+		echo "Create BUILD_DIR"
+		mkdir $(BUILD_DIR)
+	fi
 
 compile:
 	@if [ "$(labs)" = "" ]; then \

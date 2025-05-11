@@ -1,0 +1,12 @@
+Deletion Error : Max Heap is empty!
+Print Error : Max Heap is empty!
+Insert 5
+Insert 4
+Insert 3
+Insert 2
+Insert 1
+5 4 3 2 1 
+Insertion Error : Max Heap is full!
+Max Element 5 is deleted.
+4 2 3 1 
+1 is already in the heap.

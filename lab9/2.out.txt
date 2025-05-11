@@ -1,0 +1,12 @@
+Insert 10
+Insert 25
+Insert 3
+3 is already in the heap.
+Insert 5
+Insert 15
+Insertion Error : Max Heap is full!
+10 is in the heap.
+20 is not in the heap.
+25 15 3 5 10 
+Max Element 25 is deleted.
+15 10 3 5 
