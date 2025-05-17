@@ -82,9 +82,7 @@ int main(int argc, char *argv[]) {
 
     char cv;
     Heap *heap = NULL;
-    int value;
-    int out;
-    int signal;
+    int value, out, signal;
 
     while (!feof(fi)) {
         cv = ' ';
@@ -94,6 +92,10 @@ int main(int argc, char *argv[]) {
                 fscanf(fi, "%d", &value);
                 if (heap != NULL) {
                     printf("Create Error : Max Heap is already created.\n");
+                    break;
+                }
+                else if (value < 0) {
+                    printf("Create Error : Max Heap size is invalid.\n");
                     break;
                 }
                 heap = heap_create(value);

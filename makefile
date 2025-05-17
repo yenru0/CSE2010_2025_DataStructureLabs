@@ -2,7 +2,7 @@
 BUILD_DIR := build
 
 CC := gcc
-CFLAGS := -Wall -Wextra -Wpedantic -fsanitize=address -g
+CFLAGS := -Wall -Wextra -Wpedantic -fsanitize=leak,address,undefined -g
 
 init:
 	echo "Initialization of build"
