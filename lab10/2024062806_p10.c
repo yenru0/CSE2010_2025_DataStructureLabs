@@ -102,7 +102,7 @@ int maze_check(Maze *maze) {
 }
 
 void maze_create(Maze *maze) {
-    srand(100);
+    srand(time(NULL));
     while (maze_check(maze) == 0) {
         size_t wall = rand() % maze->maze_wall_data_size;
         if (maze->maze_wall_data[wall] == 0) {

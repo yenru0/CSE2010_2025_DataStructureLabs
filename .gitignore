@@ -1,5 +1,6 @@
 .in
 .out
 .vscode
+.idea
 
 build/*
