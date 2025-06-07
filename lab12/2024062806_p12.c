@@ -352,7 +352,7 @@ int main(int argc, char *argv[]) {
         if (now == global_start) {
             continue;
         } else if (list_int_get_at(res.prevs, now) == -1) {
-            printf("Unreachable Node, %d\n", now + 1);
+            printf("%d can not be reached.\n", now + 1);
             continue;
         }
 

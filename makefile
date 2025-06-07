@@ -4,6 +4,8 @@ BUILD_DIR := build
 CC := gcc
 CFLAGS := -Wall -Wextra -Wpedantic -fsanitize=leak,address,undefined -g
 
+all: compile
+
 init:
 	echo "Initialization of build"
 	if [ ! -d "$(BUILD_DIR)" ]; then
